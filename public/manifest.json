@@ -1,0 +1,9 @@
+{
+  "name": "CareerPathO — Free Indian Career Discovery",
+  "short_name": "CareerPathO",
+  "description": "100% Free, No Login, Zero Spam Career Discovery Portal for Indian Students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#080808",
+  "theme_color": "#080808"
+}

@@ -1,0 +1,11 @@
+node_modules/
+.next/
+out/
+build/
+.env*.local
+.vercel
+.aistudio/
+public/assets/aistudio/
+*.zip
+*.tsbuildinfo
+next-env.d.ts

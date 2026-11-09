@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@layer base {
+  :root,
+  [data-theme="dark"] {
+    --bg: #080808;
+    --bg-2: #111111;
+    --bg2: #111111;
+    --bg3: #1a1a1a;
+    --surface: #121212;
+    --surface-2: #1c1c1c;
+    --border: #262626;
+    --border2: #363636;
+    --border-strong: #454545;
+    --text: #f5f5f5;
+    --text2: #b3b3b3;
+    --text3: #8a8a8a;
+    --text-dim: #a3a3a3;
+    --text-mute: #7a7a7a;
+    --accent: #ffffff;
+    --accent-hover: #e5e5e5;
+    --accent-fg: #080808;
+    --accent-subtle: rgba(255, 255, 255, 0.08);
+    --success: #e5e5e5;
+    --warning: #a3a3a3;
+    --danger: #d4d4d4;
+    /* Subtle <10% Semantic Color Accents (Dark Mode) */
+    --accent-emerald: #34d399;
+    --accent-emerald-bg: rgba(16, 185, 129, 0.09);
+    --accent-emerald-border: rgba(52, 211, 153, 0.3);
+    --accent-amber: #fbbf24;
+    --accent-amber-bg: rgba(245, 158, 11, 0.09);
+    --accent-amber-border: rgba(251, 191, 36, 0.3);
+    --accent-cyan: #38bdf8;
+    --accent-cyan-bg: rgba(56, 189, 248, 0.09);
+    --accent-cyan-border: rgba(56, 189, 248, 0.3);
+    --shadow-ambient: 0 1px 2px rgba(0, 0, 0, 0.45), 0 8px 24px -4px rgba(0, 0, 0, 0.5);
+  }
+
+  [data-theme="light"] {
+    --bg: #fafafa;
+    --bg-2: #ffffff;
+    --bg2: #ffffff;
+    --bg3: #f1f1f1;
+    --surface: #ffffff;
+    --surface-2: #f0f0f0;
+    --border: #e2e2e2;
+    --border2: #cccccc;
+    --border-strong: #999999;
+    --text: #0a0a0a;
+    --text2: #404040;
+    --text3: #666666;
+    --text-dim: #525252;
+    --text-mute: #6b6b6b;
+    --accent: #0a0a0a;
+    --accent-hover: #262626;
+    --accent-fg: #ffffff;
+    --accent-subtle: rgba(10, 10, 10, 0.06);
+    --success: #171717;
+    --warning: #525252;
+    --danger: #262626;
+    /* Subtle <10% Semantic Color Accents (Light Mode) */
+    --accent-emerald: #047857;
+    --accent-emerald-bg: rgba(16, 185, 129, 0.08);
+    --accent-emerald-border: rgba(4, 120, 87, 0.28);
+    --accent-amber: #b45309;
+    --accent-amber-bg: rgba(245, 158, 11, 0.08);
+    --accent-amber-border: rgba(180, 83, 9, 0.28);
+    --accent-cyan: #0369a1;
+    --accent-cyan-bg: rgba(2, 132, 199, 0.07);
+    --accent-cyan-border: rgba(3, 105, 161, 0.26);
+    --shadow-ambient: 0 1px 2px rgba(10, 10, 10, 0.04), 0 8px 24px -6px rgba(10, 10, 10, 0.07);
+  }
+
+  /* BHARAT MOBILE UX UPGRADE: Minimum 16px body font size */
+  html {
+    font-family: var(--font-dm-sans), 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background-color: var(--bg);
+    color: var(--text);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    min-height: 100vh;
+    font-size: 1rem;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1), color 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-plus-jakarta), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  .font-mono-num {
+    font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  /* TACTILE PHYSICS: Weighted depression on click & spring cubic-bezier transitions */
+  button:not(:disabled),
+  a[href] {
+    transition:
+      transform 0.16s cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+      background-color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  button:active:not(:disabled),
+  .btn-tactile:active {
+    transform: scale(0.98);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.surface-ambient {
+  box-shadow: var(--shadow-ambient);
+}
+
+.badge-verified-subtle {
+  color: var(--accent-emerald);
+  background-color: var(--accent-emerald-bg);
+  border-color: var(--accent-emerald-border);
+}
+
+.badge-unverified-subtle {
+  color: var(--accent-amber);
+  background-color: var(--accent-amber-bg);
+  border-color: var(--accent-amber-border);
+}
+
+.badge-nov11-subtle {
+  color: var(--accent-cyan);
+  background-color: var(--accent-cyan-bg);
+  border-color: var(--accent-cyan-border);
+}
+
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 320px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  .print-expand {
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 11.5pt !important;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "CareerPathO",
+  "description": "Free trilingual (English, Hinglish, Hindi) career discovery portal, interactive roadmaps, Sarkari eligibility checker, and zero-cost smart career matcher for Indian students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
